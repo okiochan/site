@@ -1,0 +1,1 @@
+This AI tutorial takes an interesting approach to pathfinding. In the image above, suppose that the green dot is a computer-controlled character, the white E is its target destination, and the brown blocks are impassable mountains. 

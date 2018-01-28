@@ -1,0 +1,1 @@
+The indie gamedev community is awesome: so willing to share tips, tricks, advice, and even detailed tutorials explaining important concepts. Here, I've rounded up a few dozen of my favourite examples from around the internet, covering coding, maths, game design, and being a game developer. This is the quality of content that we aspire to achieve at Gamedevtuts+.
