@@ -2,6 +2,7 @@
 <html>
 <head>
    <link rel="stylesheet" href="style/css/style_main.css">
+   
 </head>
 <body>
 
@@ -13,7 +14,7 @@
 
 <div class="bordered">
     <h1>First</h1>
-    <div class="gallery ">
+    <div class="gallery">
         <?php
             function GetImages($dir) {
                 $files = scandir($dir);

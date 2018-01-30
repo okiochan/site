@@ -26,6 +26,9 @@ h1, h2, h3, footer, .gallery {
     box-shadow: 0 0 4px -1px #000;
 }
 
+.gallery a:hover  {
+}
+
 .header{
      background-color: #ffe6ff;
 }

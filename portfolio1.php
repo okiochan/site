@@ -65,7 +65,7 @@
 		</aside>
 
 		<div id="fh5co-main">
-			<div class="fh5co-gallery">
+			<div class="gallery">
                 <?php
                     function GetGalleryNames() {
                         $files = scandir("Sergey/photos");
