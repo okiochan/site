@@ -38,7 +38,7 @@
         
         function DisplayImages($dir) {
             $links = GetImages($dir);
-            $format= ' <a href="portfolio1.html">
+            $format= ' <a href="portfolio1.php">
                         <img src="%s">
                         </a> ';
             foreach ($links as $link) {
@@ -57,7 +57,7 @@
     <?php
         function DisplayImagesOther($dir) {
             $links = GetImages($dir);
-            $format= ' <a href="portfolio2.html">
+            $format= ' <a href="portfolio2.php">
                         <img src="%s">
                         </a> ';
             foreach ($links as $link) {

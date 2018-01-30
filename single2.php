@@ -41,13 +41,13 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border">
 
-			<h1 id="fh5co-logo"><a href="index.html"><img src="images/logo-colored.png"</a></h1>
+			<h1 id="fh5co-logo"><a href="index.php"><img src="images/logo-colored.png"</a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="portfolio2.html">Photos</a></li>
-					<li><a href="about2.html">About</a></li>
-					<li><a href="contact2.html">Contact</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="portfolio2.php">Photos</a></li>
+					<li><a href="about2.php">About</a></li>
+					<li><a href="contact2.php">Contact</a></li>
 				</ul>
 			</nav>
 
@@ -124,7 +124,7 @@
                 ?>
                     
 					<div class="col-md-12">
-					<p class="text-center"><a href="portfolio2.html" class="btn btn-primary btn-outline">More Photos</a></p>
+					<p class="text-center"><a href="portfolio2.php" class="btn btn-primary btn-outline">More Photos</a></p>
 					</div>
 					
 				</div>
@@ -135,23 +135,21 @@
 	</div>
 
 	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
+	<script src="style/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="style/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="style/js/bootstrap.min.js"></script>
 	<!-- Carousel -->
-	<script src="js/owl.carousel.min.js"></script>
+	<script src="style/js/owl.carousel.min.js"></script>
 	<!-- Stellar -->
-	<script src="js/jquery.stellar.min.js"></script>
+	<script src="style/js/jquery.stellar.min.js"></script>
 	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="style/js/jquery.waypoints.min.js"></script>
 	<!-- Counters -->
-	<script src="js/jquery.countTo.js"></script>
-	
-	
+	<script src="style/js/jquery.countTo.js"></script>
 	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
+	<script src="style/js/main.js"></script>
 
 	</body>
 </html>

@@ -43,13 +43,13 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<h1 id="fh5co-logo"><a href="index.html"><img src="images/logo-colored.png"></a></h1>
+			<h1 id="fh5co-logo"><a href="index.php"><img src="images/logo-colored.png"></a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li><a href="index.html">Home</a></li>
-                    <li class="fh5co-active"><a href="portfolio1.html">Photos</a></li>
-					<li><a href="about1.html">About</a></li>
-					<li><a href="contact1.html">Contact</a></li>
+					<li><a href="index.php">Home</a></li>
+                    <li class="fh5co-active"><a href="portfolio2.php">Photos</a></li>
+					<li><a href="about2.php">About</a></li>
+					<li><a href="contact2.php">Contact</a></li>
 				</ul>
 			</nav>
 
@@ -68,7 +68,7 @@
 			<div class="fh5co-gallery">
                 <?php
                     function GetGalleryNames() {
-                        $files = scandir("Sergey/photos");
+                        $files = scandir("Other/photos");
                         foreach ($files as $file) {
                             if($file == '.' || $file == "..")continue;
                             $result[] = $file;
@@ -78,7 +78,7 @@
                  
                     function DisplayGalleries() {
                         $names = GetGalleryNames();
-                        $format = ' <a class="gallery-item" href="single1.html?photo=%s">
+                        $format = ' <a class="gallery-item" href="single2.php?photo=%s">
                             <img src="%s">
                             <span class="overlay">
                                 <h2>Watch more</h2>
@@ -87,7 +87,7 @@
                         </a>';
                          
                         foreach ($names as $name) {
-                           echo sprintf($format, urlencode($name), htmlspecialchars("Sergey/photos/".$name."/preview.jpg"));
+                           echo sprintf($format, urlencode($name), htmlspecialchars("Other/photos/".$name."/preview.jpg"));
                         }
                     }
                     DisplayGalleries();

@@ -46,13 +46,13 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="js-fullheight">
 
-			<h1 id="fh5co-logo"><a href="index.html"><img src="images/logo-colored.png" </a></h1>
+			<h1 id="fh5co-logo"><a href="index.php"><img src="images/logo-colored.png" </a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="portfolio2.html">Photos</a></li>
-					<li><a href="about2.html">About</a></li>
-					<li class="fh5co-active"><a href="contact2.html">Contact</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="portfolio1.php">Photos</a></li>
+					<li><a href="about1.php">About</a></li>
+					<li class="fh5co-active"><a href="contact1.php">Contact</a></li>
 				</ul>
 			</nav>
 
