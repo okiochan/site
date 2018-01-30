@@ -320,7 +320,7 @@ figure figcaption {
   display: inline-block;
   float: left;
   z-index: 110;
-  margin: 4px 6px;
+  margin: 6px 8px;
   box-shadow: 0 0 4px -1px #000;
 }
 .gallery .gallery-item img {
@@ -335,6 +335,7 @@ figure figcaption {
   -o-transition: 0.9s;
   transition: 0.9s;
 }
+
 @media screen and (max-width: 1200px) {
   .gallery .gallery-item {
     width: 33.3333%;
