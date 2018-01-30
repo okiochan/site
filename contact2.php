@@ -169,7 +169,7 @@
 	
 	
 	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
+	<script src="style/js/main.js"></script>
 
 	</body>
 </html>
