@@ -36,6 +36,11 @@
             if (!empty($galleryname)) DisplayImages($galleryname);
         ?>
     </div>
+    
+    <div class="left_footer">
+        <p>write here mail1</p>
+        <p>write here hello world</p>
+    </div>
 </div>
 
 <div class="column right">
@@ -56,19 +61,11 @@
             DisplayImagesOther($galleryname);
         ?>
     </div>
-</div>
-  
-<div class="clearfix"></div>
-
-
-<div class="left_footer column">
-    <p>write here mail1</p>
-    <p>write here hello world</p>
-</div>
-
-<div class="column right_footer">
-    <p>write here mail2</p>
-    <p>write here hello world</p>
+    
+    <div class="right_footer">
+        <p>write here mail2</p>
+        <p>write here hello world</p>
+    </div>
 </div>
   
 <div class="clearfix"></div>

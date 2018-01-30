@@ -60,17 +60,8 @@ h1, h2, h3, footer, .gallery {
     width: 50%;
 }
 
-.footer_mine {
-    padding-right: 15px;
-    text-align: right;
-    display: inline-block;
-    width: 100%;
-    color: #f2f2f2;
-}
-
-
 .left_footer {
-    width: 50%;
+    width: 100%;
 }
 .left_footer p {
     padding-left: 20px;
@@ -79,14 +70,13 @@ h1, h2, h3, footer, .gallery {
 }
 
 .right_footer {
-    width: 50%;
+    width: 100%;
 }
 .right_footer p {
     padding-right: 20px;
     text-align: right;
     line-height: 5px;
 }
-
 
 /* DEBUG */
 /* div {
