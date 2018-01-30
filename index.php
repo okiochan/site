@@ -10,8 +10,10 @@
 </div>
 
 <div class="left column">
+
+<div class="bordered">
     <h1>First</h1>
-    <div class="gallery">
+    <div class="gallery ">
         <?php
             function GetImages($dir) {
                 $files = scandir($dir);
@@ -36,6 +38,7 @@
             if (!empty($galleryname)) DisplayImages($galleryname);
         ?>
     </div>
+</div>
     
     <div class="left_footer">
         <p>write here mail1</p>
@@ -44,6 +47,8 @@
 </div>
 
 <div class="column right">
+
+<div class="bordered">
     <h1>Second</h1>
     <div class="gallery">
         <?php
@@ -61,6 +66,7 @@
             DisplayImagesOther($galleryname);
         ?>
     </div>
+</div>
     
     <div class="right_footer">
         <p>write here mail2</p>
