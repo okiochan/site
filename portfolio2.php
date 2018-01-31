@@ -78,7 +78,7 @@
                  
                     function DisplayGalleries() {
                         $names = GetGalleryNames();
-                        $format = ' <a class="gallery-item" href="single2.php?photo=%s">
+                        $format = ' <a class="gallery-item" href="single.php?folder_name=Other&photo=%s">
                             <img src="%s">
                             <span class="overlay">
                                 <h2>Watch more</h2>

@@ -68,10 +68,29 @@
                 
                 <div class="row">
                 <?php
-                    if (!empty($_GET['photo'])) {
-                        if (preg_match("/^[A-Za-z0-9_-]+$/", $_GET['photo'])) {
-                            $galleryname = $_GET['photo'];
+                    $gallery_name = "";
+                    $folder_name = "";
+                    
+                    // sanitization
+                    if (!empty($_GET['folder_name'])) {
+                        if ($_GET['folder_name'] === "Sergey") {
+                            $folder_name = "Sergey";
+                        } else if ($_GET['folder_name'] === "Other") {
+                            $folder_name = "Other";
                         }
+                    }
+                    if (!empty($_GET['photo'])) {
+                        if (preg_match("/^[A-Za-z0-9_-]+$/", $_GET['photo']) &&
+                            strlen($_GET['photo']) <= 100) {
+                            $gallery_name = $_GET['photo'];
+                        }
+                    }
+                    
+                    if (empty($gallery_name)) {
+                        die();
+                    }
+                    if (empty($folder_name)) {
+                        die();
                     }
                 
                     function RemoveExtension($filename) {
@@ -97,10 +116,10 @@
                         return $result;
                     }
                     
-                    function DisplayImages($galleryname) {
-                        if (!file_exists("Sergey/photos/" . $galleryname)) return;
-                        $links = GetImages("Sergey/photos/" . $galleryname ."/img");
-                        $texts = GetTexts("Sergey/photos/" . $galleryname . "/text");
+                    function DisplayImages($folder_name, $gallery_name, $max_img) {
+                        if (!file_exists($folder_name."/photos/" . $gallery_name)) return;
+                        $links = GetImages($folder_name."/photos/" . $gallery_name ."/img");
+                        $texts = GetTexts($folder_name."/photos/" . $gallery_name . "/text");
                         $formatNoText = '
                                     <div class="col-md-12">
                                         <figure><img src="%s" class="img-responsive"></figure>
@@ -112,21 +131,44 @@
                                     </figure>
                                     </div>';
                          
-                        foreach ($links as $name => $link) {
-                            if (!empty($texts[$name])) {
-                                printf($formatWithText, htmlspecialchars($link), htmlspecialchars($texts[$name]));
+                         $cnt = 0;
+                        foreach ($links as $key => $value) {
+                            if (!empty($texts[$key])) {
+                                printf($formatWithText, htmlspecialchars($value), htmlspecialchars($texts[$key]));
                             } else {
-                                printf($formatNoText, htmlspecialchars($link));
+                                printf($formatNoText, htmlspecialchars($value));
                             }
+                            $cnt++;
+                            if($cnt == $max_img) break;
                         }
                     }
-                    if (!empty($galleryname)) DisplayImages($galleryname);
+                    
+                    $load_all = true;
+                    if( empty($_GET['load_all']) ) {
+                        $load_all = false;
+                    }
+                    $max_img = 4;
+                    
+                    if($load_all) {
+                        $max_img = -1;
+                    }
+                    
+                    if (!empty($gallery_name)) DisplayImages($folder_name, $gallery_name, $max_img);
+                    
+                    $link = basename(__FILE__, '.php');
+                    $link .= ".php?folder_name=" . $folder_name . "&photo=".$gallery_name."&load_all=1";
+                ?>
+                
+                <?php
+                    if(!$load_all) {  
+                ?>
+					<div class="col-md-12">
+					<p class="text-center"><a href="<?php echo($link); ?>" class="btn btn-primary btn-outline">More Photos</a></p>
+					</div>
+                <?php
+                    }   
                 ?>
                     
-					<div class="col-md-12">
-					<p class="text-center"><a href="portfolio1.php" class="btn btn-primary btn-outline">More Photos</a></p>
-					</div>
-					
 				</div>
 
 			</div>
