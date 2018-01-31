@@ -30,7 +30,7 @@
                 
                 function DisplayImages($dir) {
                     $links = GetImages($dir);
-                    $format= ' <a class="gallery_item" href="portfolio1.php">
+                    $format= ' <a class="gallery_item" href="portfolio.php?folder_name=Sergey">
                                 <img src="%s">
                                  <span class="overlay">
                                     <h2>Watch more</h2>
@@ -63,7 +63,7 @@
             <?php
                 function DisplayImagesOther($dir) {
                     $links = GetImages($dir);
-                    $format= ' <a class="gallery_item" href="portfolio2.php">
+                    $format= ' <a class="gallery_item" href="portfolio.php?folder_name=Other">
                                 <img src="%s">
                                  <span class="overlay">
                                     <h2>Watch more</h2>

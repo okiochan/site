@@ -132,6 +132,7 @@
                                     </div>';
                          
                          $cnt = 0;
+                         // htmlspecialchars - when we want only TEXT
                         foreach ($links as $key => $value) {
                             if (!empty($texts[$key])) {
                                 printf($formatWithText, htmlspecialchars($value), htmlspecialchars($texts[$key]));

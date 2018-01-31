@@ -67,8 +67,22 @@
 		<div id="fh5co-main">
 			<div class="gallery">
                 <?php
-                    function GetGalleryNames() {
-                        $files = scandir("Sergey/photos");
+                    $folder_name = "";
+                     // sanitization
+                    if (!empty($_GET['folder_name'])) {
+                        if ($_GET['folder_name'] === "Sergey") {
+                            $folder_name = "Sergey";
+                        } else if ($_GET['folder_name'] === "Other") {
+                            $folder_name = "Other";
+                        }
+                    }
+                    
+                    if (empty($folder_name)) {
+                        die();
+                    }
+                
+                    function GetGalleryNames($folder_name) {
+                        $files = scandir($folder_name."/photos");
                         foreach ($files as $file) {
                             if($file == '.' || $file == "..")continue;
                             $result[] = $file;
@@ -76,9 +90,9 @@
                         return $result;
                     }
                  
-                    function DisplayGalleries() {
-                        $names = GetGalleryNames();
-                        $format = ' <a class="gallery-item" href="single.php?folder_name=Sergey&photo=%s">
+                    function DisplayGalleries($folder_name) {
+                        $names = GetGalleryNames($folder_name);
+                        $format = ' <a class="gallery-item" href="single.php?folder_name=%s&photo=%s">
                             <img src="%s">
                             <span class="overlay">
                                 <h2>Watch more</h2>
@@ -86,11 +100,12 @@
                             </span>
                         </a>';
                          
+                         //for GET - urlencode
                         foreach ($names as $name) {
-                           echo sprintf($format, urlencode($name), htmlspecialchars("Sergey/photos/".$name."/preview.jpg"));
+                           echo sprintf($format, urlencode($folder_name), urlencode($name), htmlspecialchars($folder_name."/photos/".$name."/preview.jpg"));
                         }
                     }
-                    DisplayGalleries();
+                    DisplayGalleries($folder_name);
                 ?>
 			</div>
 
