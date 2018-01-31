@@ -13,7 +13,7 @@
 <div class="left column">
     <div class="bordered">
         <div class="liink">
-            <a href="portfolio1.php">
+            <a href="portfolio.php?folder_name=Sergey">
                 <h1 >Sergey</h1>
             </a>
         </div>
@@ -55,7 +55,7 @@
 <div class="column right">
     <div class="bordered">
         <div class="liink">
-            <a href="portfolio1.php">
+            <a href="portfolio.php?folder_name=Other">
                 <h1 >Other</h1>
             </a>
         </div>

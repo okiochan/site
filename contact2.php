@@ -50,7 +50,7 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li><a href="index.php">Home</a></li>
-					<li><a href="portfolio2.php">Photos</a></li>
+					<li><a href="portfolio.php?folder_name=Other">Photos</a></li>
 					<li><a href="about2.php">About</a></li>
 					<li class="fh5co-active"><a href="contact2.php">Contact</a></li>
 				</ul>

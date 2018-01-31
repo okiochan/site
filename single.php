@@ -1,3 +1,29 @@
+<?php
+    $gallery_name = "";
+    $folder_name = "";
+    
+    // sanitization
+    if (!empty($_GET['folder_name'])) {
+        if ($_GET['folder_name'] === "Sergey") {
+            $folder_name = "Sergey";
+        } else if ($_GET['folder_name'] === "Other") {
+            $folder_name = "Other";
+        }
+    }
+    if (!empty($_GET['photo'])) {
+        if (preg_match("/^[A-Za-z0-9_-]+$/", $_GET['photo']) &&
+            strlen($_GET['photo']) <= 100) {
+            $gallery_name = $_GET['photo'];
+        }
+    }
+    if (empty($gallery_name)) {
+        die();
+    }
+    if (empty($folder_name)) {
+        die();
+    }               
+?>
+
 <!DOCTYPE html>
 	<head>
 	<meta charset="utf-8">
@@ -45,9 +71,23 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li><a href="index.php">Home</a></li>
-					<li><a href="portfolio1.php">Photos</a></li>
-					<li><a href="about1.php">About</a></li>
-					<li><a href="contact1.php">Contact</a></li>
+                     <?php
+                        if($folder_name == "Sergey") {
+                            $str = '
+                            <li class="fh5co-active"><a href="portfolio.php?folder_name=Sergey">Photos</a></li>
+                            <li><a href="about1.php">About</a></li>
+                            <li><a href="contact1.php">Contact</a></li>';
+                            echo $str;
+                        } else if ($folder_name == "Other") {
+                            $str = '
+                            <li class="fh5co-active"><a href="portfolio.php?folder_name=Other">Photos</a></li>
+                            <li><a href="about2.php">About</a></li>
+                            <li><a href="contact2.php">Contact</a></li>';
+                            echo $str;
+                        } else {
+                            die();
+                        }
+                    ?>
 				</ul>
 			</nav>
 
@@ -68,31 +108,6 @@
                 
                 <div class="row">
                 <?php
-                    $gallery_name = "";
-                    $folder_name = "";
-                    
-                    // sanitization
-                    if (!empty($_GET['folder_name'])) {
-                        if ($_GET['folder_name'] === "Sergey") {
-                            $folder_name = "Sergey";
-                        } else if ($_GET['folder_name'] === "Other") {
-                            $folder_name = "Other";
-                        }
-                    }
-                    if (!empty($_GET['photo'])) {
-                        if (preg_match("/^[A-Za-z0-9_-]+$/", $_GET['photo']) &&
-                            strlen($_GET['photo']) <= 100) {
-                            $gallery_name = $_GET['photo'];
-                        }
-                    }
-                    
-                    if (empty($gallery_name)) {
-                        die();
-                    }
-                    if (empty($folder_name)) {
-                        die();
-                    }
-                
                     function RemoveExtension($filename) {
                         return preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename);
                     }

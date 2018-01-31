@@ -1,3 +1,19 @@
+<?php
+ $folder_name = "";
+ // sanitization
+    if (!empty($_GET['folder_name'])) {
+        if ($_GET['folder_name'] === "Sergey") {
+            $folder_name = "Sergey";
+        } else if ($_GET['folder_name'] === "Other") {
+            $folder_name = "Other";
+        }
+    }
+    
+    if (empty($folder_name)) {
+        die();
+    }
+?>
+
 <!DOCTYPE html>
 	<head>
 	<meta charset="utf-8">
@@ -47,9 +63,23 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li><a href="index.php">Home</a></li>
-                    <li class="fh5co-active"><a href="portfolio1.php">Photos</a></li>
-					<li><a href="about1.php">About</a></li>
-					<li><a href="contact1.php">Contact</a></li>
+                    <?php
+                        if($folder_name == "Sergey") {
+                            $str = '
+                            <li class="fh5co-active"><a href="portfolio.php?folder_name=Sergey">Photos</a></li>
+                            <li><a href="about1.php">About</a></li>
+                            <li><a href="contact1.php">Contact</a></li>';
+                            echo $str;
+                        } else if ($folder_name == "Other") {
+                            $str = '
+                            <li class="fh5co-active"><a href="portfolio.php?folder_name=Other">Photos</a></li>
+                            <li><a href="about2.php">About</a></li>
+                            <li><a href="contact2.php">Contact</a></li>';
+                            echo $str;
+                        } else {
+                            die();
+                        }
+                    ?>
 				</ul>
 			</nav>
 
@@ -67,20 +97,7 @@
 		<div id="fh5co-main">
 			<div class="gallery">
                 <?php
-                    $folder_name = "";
-                     // sanitization
-                    if (!empty($_GET['folder_name'])) {
-                        if ($_GET['folder_name'] === "Sergey") {
-                            $folder_name = "Sergey";
-                        } else if ($_GET['folder_name'] === "Other") {
-                            $folder_name = "Other";
-                        }
-                    }
-                    
-                    if (empty($folder_name)) {
-                        die();
-                    }
-                
+                   
                     function GetGalleryNames($folder_name) {
                         $files = scandir($folder_name."/photos");
                         foreach ($files as $file) {
