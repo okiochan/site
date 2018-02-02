@@ -35,9 +35,15 @@
 	<link rel="stylesheet" href="style/css/owl.theme.default.min.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="style/css/style.css">
+    
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
 	<!-- Modernizr JS -->
 	<script src="style/js/modernizr-2.6.2.min.js"></script>
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
 
 	</head>
 	<body>
@@ -114,25 +120,63 @@
 						<h1>Get In Touch</h1>
 					</div>
 				</div>
-				<form action="">
+                
+<script >
+$( document ).ready(function() {
+    $('input[type="submit"]').on('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        var onSuccess = function(data, textStatus, jqXHR) {
+            if (data.indexOf("Ok") != -1) {
+                alert("Message sent!");
+            } else {
+                alert("Error");
+            }
+            console.log(data);
+            console.log(textStatus);
+        };
+        
+        var onError = function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+        
+        var data = $(".message_form").serialize();
+        var url = "send_form_performing1.php";
+        var settings = {
+            data: data,
+            method: "POST",
+            url: url,
+            success: onSuccess,
+            error: onError, 
+        };
+        $.ajax(settings);
+    });
+    
+});
+</script>
+                
+				<form class="message_form" action="send_form_performing1.php" method="post">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="row">
+							<div class="row">	
 								<div class="col-md-6">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Name">
+										<input type="text" class="form-control" placeholder="Name" name="Name" required>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Email">
+										<input type="text" class="form-control" placeholder="Email" name="Email" required>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Phone">
+										<input type="text" class="form-control" placeholder="Phone" name="Phone" required>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<textarea name="" id="message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+										<textarea name="Message" id="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
 									</div>
+                                    <div class="g-recaptcha" data-sitekey="6LfT2EMUAAAAAI3OD46lijfQoPW7hO8_jGyD_YP-"></div>
 									<div class="form-group">
 										<input type="submit" class="btn btn-primary btn-md" value="Send Message">
 									</div>
@@ -148,6 +192,15 @@
 		</div>
 	</div>
 
+	<!-- Counters -->
+	<script src="style/js/jquery.countTo.js"></script>
+	<!-- Google Map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+	<script src="style/js/google_map.js"></script>
+	
+	<!-- MAIN JS -->
+	<script src="style/js/main.js"></script>
+    
 	<!-- jQuery -->
 	<script src="style/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -160,16 +213,6 @@
 	<script src="style/js/jquery.stellar.min.js"></script>
 	<!-- Waypoints -->
 	<script src="style/js/jquery.waypoints.min.js"></script>
-	<!-- Counters -->
-	<script src="style/js/jquery.countTo.js"></script>
-	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-	<script src="style/js/google_map.js"></script>
-
-	
-	
-	<!-- MAIN JS -->
-	<script src="style/js/main.js"></script>
 
 	</body>
 </html>
