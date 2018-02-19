@@ -90,6 +90,7 @@
                             die();
                         }
                     ?>
+                    <li><a href="register.php">Register</a></li>';
 				</ul>
 			</nav>
 
