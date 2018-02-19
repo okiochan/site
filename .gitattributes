@@ -2,5 +2,3 @@
 * text=auto
 
 *.php text
-
-core.safecrlf = false
