@@ -1,29 +1,29 @@
 <?php
-require_once __DIR__ . "/"
+require_once __DIR__ . "/";
 
-    $gallery_name = "";
-    $folder_name = "";
-    
-    // sanitization
-    if (!empty($_GET['folder_name'])) {
-        if ($_GET['folder_name'] === "Sergey") {
-            $folder_name = "Sergey";
-        } else if ($_GET['folder_name'] === "Other") {
-            $folder_name = "Other";
-        }
+$gallery_name = "";
+$folder_name = "";
+
+// sanitization
+if (!empty($_GET['folder_name'])) {
+    if ($_GET['folder_name'] === "Sergey") {
+        $folder_name = "Sergey";
+    } else if ($_GET['folder_name'] === "Other") {
+        $folder_name = "Other";
     }
-    if (!empty($_GET['photo'])) {
-        if (preg_match("/^[A-Za-z0-9_-]+$/", $_GET['photo']) &&
-            strlen($_GET['photo']) <= 100) {
-            $gallery_name = $_GET['photo'];
-        }
+}
+if (!empty($_GET['photo'])) {
+    if (preg_match("/^[A-Za-z0-9_-]+$/", $_GET['photo']) &&
+        strlen($_GET['photo']) <= 100) {
+        $gallery_name = $_GET['photo'];
     }
-    if (empty($gallery_name)) {
-        die();
-    }
-    if (empty($folder_name)) {
-        die();
-    }               
+}
+if (empty($gallery_name)) {
+    die();
+}
+if (empty($folder_name)) {
+    die();
+}               
 ?>
 
 <!DOCTYPE html>
