@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . "/"
+
     $gallery_name = "";
     $folder_name = "";
     
