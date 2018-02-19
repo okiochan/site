@@ -22,7 +22,7 @@ $( document ).ready(function() {
         };
         
         var data = $(".log_form").serialize();
-        var url = "db/worker/login_user.php";
+        var url = "worker/login_user.php";
         var settings = {
             data: data,
             method: "POST",
