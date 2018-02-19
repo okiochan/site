@@ -9,7 +9,7 @@
 	<meta name="keywords" content="hello" />
 	<meta name="author" content="FreeHTML5.co" />
 
-  	<!-- Facebook and Twitterqqq integration -->
+  	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
