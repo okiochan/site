@@ -10,7 +10,7 @@ function TryLogin($username, $pass) {
         return;
     }
     if( DB::dbCheckPass($username, $pass) == true) {
-        if(COO::checkCookie() == false) {
+        if(Users::isLogged() == false) {
             echo('cookieDisabled');
         }
         Users::loginUser($username);

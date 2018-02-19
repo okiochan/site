@@ -34,7 +34,7 @@
       crossorigin="anonymous"></script>
       
       <!-- logic -->
-      <script src="db/js/login.js"></script>
+      <script src="js/login.js"></script>
 
 	</head>
 	<body>
