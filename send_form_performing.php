@@ -71,16 +71,19 @@
 		$mail->Subject = 'From site';
 		$mail->Body    = '' .$name .'<br>'. ' Phone: ' .$phone.'<br>'. 'Email: ' .$email.'<br>'."Message: ".$text;
 		$mail->AltBody = '';
+        
         try {
             if(!$mail->send()) {
-                echo 'Error';
+				$data = ['ans' => 'error'];
             } else {
-                echo "Ok";
+				$data = ['ans' => 'Ok'];
             }
+			header('Content-Type: application/json');
+			echo json_encode($data);
         } catch (Exception $ex) {
-            echo "exception";
-			echo $ex;
-            echo $ex->getMessage();
+			$data = ['ans' => 'exception', 'message' => $ex->getMessage()];
+            header('Content-Type: application/json');
+			echo json_encode($data);
         }
 	}
 ?>
