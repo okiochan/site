@@ -62,6 +62,12 @@ if (empty($folder_name)) {
 	<script src="style/js/modernizr-2.6.2.min.js"></script>
     
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src='js/add_comment.js'></script>
 
 	</head>
 	<body>
@@ -183,6 +189,17 @@ if (empty($folder_name)) {
             <!--- Comment section -->
             
             <?php
+            
+            $comments = CommentsDB::GetInstance()->GetComments($folder_name, $gallery_name);
+            foreach($comments as $comment) {
+                echo htmlspecialchars($comment['username']) . "<br>";
+                echo htmlspecialchars($comment['text']) . "<br>";
+                echo htmlspecialchars($comment['time']) . "<br>";
+            }
+            
+            ?>
+            
+            <?php
             $is_logged = Users::isLogged();
             ?>
             <?php
@@ -195,7 +212,7 @@ if (empty($folder_name)) {
 					</div>
 				</div>
                 
-				<form class="comments" action="" method="post">
+				<form class="comment_form" action="" method="post">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="row">	
@@ -203,11 +220,14 @@ if (empty($folder_name)) {
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<textarea name="Message" id="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
+										<textarea name="text" id="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
 									</div>
                                     <div class="g-recaptcha" data-sitekey="6LfT2EMUAAAAAI3OD46lijfQoPW7hO8_jGyD_YP-"></div>
 									<div class="form-group">
-										<input type="submit" class="btn btn-primary btn-md" value="Send Message">
+										<input type="submit" class="btn btn-primary btn-md comment_submit" value="Add comment">
+										<input type="hidden" name="photo" value="<?php echo htmlspecialchars($gallery_name); ?>">
+										<input type="hidden" name="folder_name" value="<?php echo htmlspecialchars($folder_name); ?>">
+										<input type="hidden" name="username" value="<?php echo htmlspecialchars(Users::whichUser()); ?>">
 									</div>
 								</div>
 							</div>

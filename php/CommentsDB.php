@@ -48,6 +48,7 @@ class CommentsDB {
         $res = $stmt->execute();
         if ($res === false) throw new Exception($this->db->lastErrorMsg());
         
+        $ret = [];
         while (($row = $res->fetchArray(SQLITE3_ASSOC))) {
             $ret[] = $row;
         }

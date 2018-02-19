@@ -11,11 +11,11 @@ if (!Users::isLogged()) Result(1, "user not logged in");
 
 if (empty($_POST['folder_name'])) Result(2, "no folder");
 if (strlen($_POST['folder_name']) == 0) Result(3, "empty folder");
-if (strlen($_POST['folder_name']) > 0) Result(4, "folder name too big");
+if (strlen($_POST['folder_name']) > 100) Result(4, "folder name too big");
 
 if (empty($_POST['photo'])) Result(5, "no folder");
 if (strlen($_POST['photo']) == 0) Result(6, "empty folder name");
-if (strlen($_POST['photo']) > 0) Result(7, "folder name too big");
+if (strlen($_POST['photo']) > 100) Result(7, "folder name too big");
 
 if (empty($_POST['text'])) Result(8, "no text");
 if (strlen($_POST['text']) == 0) Result(9, "empty text");
