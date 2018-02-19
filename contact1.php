@@ -128,9 +128,9 @@ $( document ).ready(function() {
         e.stopPropagation();
         
         var onSuccess = function(data, textStatus, jqXHR) {
-            if (data.indexOf("Ok") != -1) {
+			if (data.ans && data.ans.indexOf("Ok") != -1) {
                 alert("Message sent!");
-            } else {
+            } else if (data.ans) {
                 alert("Error");
             }
             console.log(data);
