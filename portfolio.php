@@ -63,10 +63,7 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li><a href="index.php">Home</a></li>
-                    
-                    <?php
-                    require_once __DIR__ . "/php/worker/left_column.php";
-                    ?>
+                    <?php require_once __DIR__ . "/php/worker/left_column.php"; ?>
 				</ul>
 			</nav>
 
