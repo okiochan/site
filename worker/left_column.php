@@ -1,6 +1,5 @@
 <?php
-
-session_start();
+require_once __DIR__ . '/../php/include.php';
 
 if($folder_name == "Sergey") {
     $str = '
