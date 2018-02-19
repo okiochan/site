@@ -239,30 +239,30 @@
 								e.stopPropagation();
 								
 								var onSuccess = function(data, textStatus, jqXHR) {
-									if (data.indexOf("Ok") != -1) {
-										alert("Message sent!");
-									} else {
-										alert("Error");
-									}
-									console.log(data);
-									console.log(textStatus);
+									if (data.ans && data.ans.indexOf("Ok") != -1) {
+                                        alert("Message sent!");
+                                    } else if (data.ans) {
+                                        alert("Error");
+                                    }
+                                    console.log(data);
+                                    console.log(textStatus);
 								};
 								
 								var onError = function(jqXHR, textStatus, errorThrown) {
 									console.log(textStatus);
 									console.log(errorThrown);
 								}
-								
+                                
 								var data = $(".message_form").serialize();
-								var url = "send_form_performing.php";
-								var settings = {
-									data: data,
-									method: "POST",
-									url: url,
-									success: onSuccess,
-									error: onError, 
-								};
-								$.ajax(settings);
+                                var url = "send_form_performing.php";
+                                var settings = {
+                                    data: data,
+                                    method: "POST",
+                                    url: url,
+                                    success: onSuccess,
+                                    error: onError, 
+                                };
+                                $.ajax(settings);
 							}
 							else {
 								e.preventDefault();
