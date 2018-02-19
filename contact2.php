@@ -55,7 +55,6 @@
 					<li><a href="portfolio.php?folder_name=Other">Photos</a></li>
 					<li><a href="about2.php">About</a></li>
 					<li class="fh5co-active"><a href="contact2.php">Contact</a></li>
-                    <li><a href="register.php">Register</a></li>';
 				</ul>
 			</nav>
 

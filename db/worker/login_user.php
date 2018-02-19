@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../db/php/include.php';
+require_once __DIR__ . '/../php/include.php';
 
 $recieved_login = $_POST['login'];
 $recieved_pass = $_POST['pass'];
