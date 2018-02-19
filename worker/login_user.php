@@ -5,15 +5,29 @@ $recieved_login = $_POST['login'];
 $recieved_pass = $_POST['pass'];
 
 function TryLogin($username, $pass) {  
-    if( DB::dbCheckUserExist($username) == false) {
+
+    $user = null;
+    if( DB::dbCheckUserExist($username) ) {
+        $user = $username;
+    }
+    if( DB::dbCheckEmailExist($username) ) {
+        $user = DB::dbGetUsernameByEmail($username);
+        if($user == -1) {
+            echo ('error');
+            return;
+        }
+    }
+    
+    if($user == null) {
         echo('userNotFound');
         return;
     }
-    if( DB::dbCheckPass($username, $pass) == true) {
+    
+    if( DB::dbCheckPass($user, $pass) == true) {
         if(Users::isLogged() == false) {
             echo('cookieDisabled');
         }
-        Users::loginUser($username);
+        Users::loginUser($user);
         echo ('success');
     } else {
         echo ('error');
@@ -21,3 +35,4 @@ function TryLogin($username, $pass) {
 }
 
 TryLogin($recieved_login, $recieved_pass);
+ 

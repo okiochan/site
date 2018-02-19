@@ -58,6 +58,21 @@ class DB {
         return true;
     }
 
+    public static function dbGetUsernameByEmail($email) {
+        $db = self::OpenDB();
+
+        $stmt = $db->prepare('SELECT username FROM users WHERE email=:1');
+        $stmt -> bindParam(':1',$email);
+        $res = $stmt -> execute();
+        $row = $res->fetchArray();
+        
+        if($row == false){
+            return -1;
+        }
+        return $row['username'];
+    }  
+    
+    
     public static function dbAddUser($username, $pass, $email) {
         $db = self::OpenDB();
 
