@@ -181,6 +181,13 @@ if (empty($folder_name)) {
 			</div>
             
             <!--- Comment section -->
+            
+            <?php
+            $is_logged = Users::isLogged();
+            ?>
+            <?php
+            if($is_logged) {
+            ?>
 			<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft">
 				<div class="row">
 					<div class="col-md-4">
@@ -193,12 +200,6 @@ if (empty($folder_name)) {
 						<div class="col-md-12">
 							<div class="row">	
 								<div class="col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Name" name="Name" required>
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Email" name="Email" required>
-									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
@@ -215,6 +216,9 @@ if (empty($folder_name)) {
 					</div>
 				</form>
 			</div>
+            <?php 
+            } 
+            ?>
             
             
 
