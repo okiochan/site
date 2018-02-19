@@ -61,15 +61,14 @@
 						<h1>Login</h1>
 					</div>
 				</div>
-                
-                
+              
 				<form class="log_form">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="row">	
 								<div class="col-md-6">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Name" name="login" required>
+										<input type="text" class="form-control" placeholder="Name or Email" name="login" required>
 									</div>
 									<div class="form-group">
 										<input type="text" class="form-control" placeholder="Password" name="pass" required>
