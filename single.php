@@ -58,6 +58,8 @@
 
 	<!-- Modernizr JS -->
 	<script src="style/js/modernizr-2.6.2.min.js"></script>
+    
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
 	</head>
 	<body>
@@ -184,10 +186,51 @@
                 <?php
                     }   
                 ?>
-                    
-				</div>
+                
+                
+                
+                
+                </div>
 
 			</div>
+            
+            <!--- Comment section -->
+			<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft">
+				<div class="row">
+					<div class="col-md-4">
+						<h1>Leave a Comment</h1>
+					</div>
+				</div>
+                
+				<form class="comments" action="" method="post">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">	
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Name" name="Name" required>
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Email" name="Email" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<textarea name="Message" id="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
+									</div>
+                                    <div class="g-recaptcha" data-sitekey="6LfT2EMUAAAAAI3OD46lijfQoPW7hO8_jGyD_YP-"></div>
+									<div class="form-group">
+										<input type="submit" class="btn btn-primary btn-md" value="Send Message">
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</form>
+			</div>
+            
+            
 
 		</div>
 	</div>
