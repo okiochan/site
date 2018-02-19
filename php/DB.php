@@ -6,7 +6,7 @@ class DB {
     
     public static function OpenDB() {
         if (self::$db == null) {
-            self::$db = new SQLite3(__DIR__ . '/data.db');
+            self::$db = new SQLite3(DB_USERS_PATH);
         }
         return self::$db;
     }
