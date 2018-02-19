@@ -35,12 +35,7 @@ function VerifyCaptcha() {
 		$email = htmlentities($_POST['Email']);
 		$phone = htmlentities($_POST['Phone']);
 		$message = htmlentities($_POST['Message']);
-
-		// $name = urldecode($name);
-		// $email = urldecode($email);
-		// $phone = urldecode($phone);
-		// $message = urldecode($message);
-
+        
 		$name = trim($name);
 		$email = trim($email);
 		$phone = trim($phone);
@@ -63,13 +58,6 @@ function VerifyCaptcha() {
 
 		$mail->setFrom('serezha-sergey-20192@mail.ru'); // от кого будет уходить письмо?
 		$mail->addAddress('serezha-sergey-20192@mail.ru');     // Кому будет уходить письмо
-		//$mail->addAddress('ellen@example.com');               // Name is optional
-		//$mail->addReplyTo('info@example.com', 'Information');
-		//$mail->addCC('cc@example.com');
-		//$mail->addBCC('bcc@example.com');
-		//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-		//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-		$mail->isHTML(true);                                  // Set email format to HTML
 
 		$mail->Subject = 'From site';
 		$mail->Body    = '' .$name .'<br>'. ' Phone: ' .$phone.'<br>'. 'Email: ' .$email.'<br>'."Message: ".$text;
@@ -77,13 +65,16 @@ function VerifyCaptcha() {
 
         try {
             if(!$mail->send()) {
-                echo 'Error';
+				$data = ['ans' => 'error'];
             } else {
-                echo "Ok";
+				$data = ['ans' => 'Ok'];
             }
+			header('Content-Type: application/json');
+			echo json_encode($data);
         } catch (Exception $ex) {
-            echo "exceptipn";
-            echo $ex->getMessage();
+			$data = ['ans' => 'exception', 'message' => $ex->getMessage()];
+            header('Content-Type: application/json');
+			echo json_encode($data);
         }
 
 	}
