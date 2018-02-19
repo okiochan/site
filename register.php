@@ -61,22 +61,31 @@
 						<h1>Register user</h1>
 					</div>
 				</div>
-                
-                
+    
 				<form class="reg_form">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="row">	
 								<div class="col-md-6">
+                                
+                                    <div name="help_for_name_input" id="help_for_name_input" class="warning_message_in_feedback_form" style="visibility:hidden;">
+                                        </div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Name" name="login" required>
+										<input type="text" id="Name_Input" class="form-control" placeholder="Name" name="login" maxlength="50">
+									</div>
+                                    
+                                    <div name="help_for_email_input" id="help_for_email_input" class="warning_message_in_feedback_form" style="visibility:visible; color: red;">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Email" name="email" required>
+										<input type="text" id="Email_Input" class="form-control" placeholder="Email" name="email" maxlength="50">
+									</div>
+                                    
+                                    <div name="help_for_pass_input" id="help_for_pass_input" class="warning_message_in_feedback_form" style="visibility:visible; color: red;">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Password" name="pass" required>
+										<input type="text" id="Pass_Input" class="form-control" placeholder="Password" name="pass" required>
 									</div>
+                                    
 								</div>								
 							</div>
 						</div>

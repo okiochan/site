@@ -32,8 +32,6 @@ class DB {
     public static function dbCheckUserExist($username) {
         $db = self::OpenDB();
 
-        error_log("hello");
-
         $stmt = $db->prepare('SELECT username FROM users WHERE username=:1');
         $stmt -> bindParam(':1',$username);
         $res = $stmt -> execute();
@@ -44,34 +42,42 @@ class DB {
         }
         return true;
     }
+    
+    public static function dbCheckEmailExist($email) {
+        $db = self::OpenDB();
 
-    public static function dbAddUser($username, $pass) {
+        // error_log("hello");
+        $stmt = $db->prepare('SELECT email FROM users WHERE email=:1');
+        $stmt -> bindParam(':1',$email);
+        $res = $stmt -> execute();
+
+        $row = $res->fetchArray();
+        if($row == false){
+            return false;
+        }
+        return true;
+    }
+
+    public static function dbAddUser($username, $pass, $email) {
         $db = self::OpenDB();
 
         if( self::dbCheckUserExist($username) == true) {
             return 0;
         }
-
-        if(self::dbValidPass($pass) == false) {
+        if( self::dbCheckEmailExist($email) == true) {
             return -1;
         }
-
+        
         $salt = self::dbGenerateSalt();
         $pass = self::dbPassToHash($pass, $salt);
 
-        $stmt = $db->prepare('INSERT INTO users (username,password,salt) VALUES (:1,:2,:3)');
+        $stmt = $db->prepare('INSERT INTO users (username,password,salt,email) VALUES (:1,:2,:3,:4)');
         $stmt -> bindParam(':1',$username);
         $stmt -> bindParam(':2',$pass);
         $stmt -> bindParam(':3',$salt);
+        $stmt -> bindParam(':4',$email);
         $stmt -> execute();
         return 1;
-    }
-
-    private static function dbValidPass($pass) {
-        if( strlen($pass) <= MIN_PASS_LEN ) {
-            return false;
-        }
-        return true;
     }
 
     private static function dbPassToHash($pass, $salt) {
