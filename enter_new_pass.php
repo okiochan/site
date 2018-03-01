@@ -1,3 +1,21 @@
+<?php
+require_once __DIR__ . '/php/include.php';
+
+$login = $_GET['username'];
+$salt = $_GET['salt'];
+
+if(DB::dbCheckUserExist($login) == false) {
+    echo("user not found, please try again");
+    die();
+}
+
+if( DBrestore::dbCheckSalt($login, $salt) == false) {
+    echo("error, please try again");
+    die();
+}
+
+?>
+
 <!DOCTYPE html>
 	<head>
 	<meta charset="utf-8">
@@ -34,7 +52,7 @@
       crossorigin="anonymous"></script>
       
       <!-- logic -->
-      <script src="js/login.js"></script>
+      <script src="js/enter_new_pass.js"></script>
 
 	</head>
 	<body>
@@ -58,34 +76,30 @@
 				
 				<div class="row">
 					<div class="col-md-4">
-						<h1>Login</h1>
+						<h1>Enter new password</h1>
 					</div>
 				</div>
-              
-				<form class="log_form">
+    
+				<form class="pass_form">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="row">	
 								<div class="col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Name or Email" name="login" required>
+                                    
+                                    <div name="help_for_pass_input" id="help_for_pass_input" class="warning_message_in_feedback_form" style="visibility:visible; color: red;">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Password" name="pass" required>
+										<input type="text" id="Pass_Input" class="form-control" placeholder="Password" name="pass" required>
 									</div>
+                                    
 								</div>								
 							</div>
 						</div>
 					</div>
                     
                     <div class="col-md-12">
-                        <a class="btn btn-primary btn-outline log_button">Login</a>
+                        <a class="btn btn-primary btn-outline reg_button">Next</a>
 					</div>
-                    
-                    <div class="col-md-12">
-                        <a class="btn btn-primary btn-outline" href = "restore_pass.php">Restore password</a>
-					</div>
-                    
 				</form>
                 
 			</div>

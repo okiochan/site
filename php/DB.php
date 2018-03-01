@@ -72,6 +72,30 @@ class DB {
         return $row['username'];
     }  
     
+    public static function dbGetEmailByUsername($username) {
+    $db = self::OpenDB();
+
+    $stmt = $db->prepare('SELECT email FROM users WHERE username=:1');
+    $stmt -> bindParam(':1',$username);
+    $res = $stmt -> execute();
+    $row = $res->fetchArray();
+    
+    if($row == false){
+        return -1;
+    }
+    return $row['email'];
+    }  
+    
+    public static function dbGenerateSalt() {
+    $res ='';
+    for($i=0; $i < 64; $i++) {
+        $c = rand( ord('a'), ord('z') );
+        $c = chr ($c);
+        $res = $res.$c;
+    }
+    return $res;
+    }
+    
     
     public static function dbAddUser($username, $pass, $email) {
         $db = self::OpenDB();
@@ -97,16 +121,6 @@ class DB {
 
     private static function dbPassToHash($pass, $salt) {
         $res = hash('sha256',$pass.$salt);
-        return $res;
-    }
-
-    private static function dbGenerateSalt() {
-        $res ='';
-        for($i=0; $i < 64; $i++) {
-            $c = rand( ord('a'), ord('z') );
-            $c = chr ($c);
-            $res = $res.$c;
-        }
         return $res;
     }
 }

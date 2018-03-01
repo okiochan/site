@@ -9,17 +9,13 @@ function TryLogin($username, $pass) {
     $user = null;
     if( DB::dbCheckUserExist($username) ) {
         $user = $username;
-    }
-    if( DB::dbCheckEmailExist($username) ) {
+    } else if( DB::dbCheckEmailExist($username) ) {
         $user = DB::dbGetUsernameByEmail($username);
-        if($user == -1) {
-            echo ('error');
-            return;
-        }
-    }
-    
-    if($user == null) {
+    } else if( $user == null ) {
         echo('userNotFound');
+        return;
+    } else { 
+        echo ('error');
         return;
     }
     

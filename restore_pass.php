@@ -34,7 +34,7 @@
       crossorigin="anonymous"></script>
       
       <!-- logic -->
-      <script src="js/login.js"></script>
+      <script src="js/restore.js"></script>
 
 	</head>
 	<body>
@@ -58,11 +58,11 @@
 				
 				<div class="row">
 					<div class="col-md-4">
-						<h1>Login</h1>
+						<h1>Enter your nickname or email</h1>
 					</div>
 				</div>
               
-				<form class="log_form">
+				<form class="restore_form">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="row">	
@@ -70,20 +70,13 @@
 									<div class="form-group">
 										<input type="text" class="form-control" placeholder="Name or Email" name="login" required>
 									</div>
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Password" name="pass" required>
-									</div>
 								</div>								
 							</div>
 						</div>
 					</div>
                     
                     <div class="col-md-12">
-                        <a class="btn btn-primary btn-outline log_button">Login</a>
-					</div>
-                    
-                    <div class="col-md-12">
-                        <a class="btn btn-primary btn-outline" href = "restore_pass.php">Restore password</a>
+                        <a class="btn btn-primary btn-outline restore_button">Next</a>
 					</div>
                     
 				</form>
