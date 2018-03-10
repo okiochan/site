@@ -1282,3 +1282,29 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+/* comments form */
+.thumbnail {
+    padding:0px;
+}
+.panel {
+	position:relative;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+
+.col-md-4.comments, .col-md-6.comments, .col-md-8.comments {
+	padding: 0px 30px;
+}
