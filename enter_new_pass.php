@@ -1,16 +1,19 @@
 <?php
 require_once __DIR__ . '/php/include.php';
 
-$username = $_GET['username'];
+$login = $_GET['username'];
 $salt = $_GET['salt'];
 
-if(DB::dbCheckUserExist($username) == false) {
-    die("user_not_found");
+if(DB::dbCheckUserExist($login) == false) {
+    echo("user not found, please try again");
+    die();
 }
 
-if( DBrestore::dbCheckSalt($username, $salt) == false) {
-    die("salt_not_found");
+if( DBrestore::dbCheckSalt($login, $salt) == false) {
+    echo("error, please try again");
+    die();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -86,11 +89,7 @@ if( DBrestore::dbCheckSalt($username, $salt) == false) {
                                     <div name="help_for_pass_input" id="help_for_pass_input" class="warning_message_in_feedback_form" style="visibility:visible; color: red;">
 									</div>
 									<div class="form-group">
-										<input type="text" id="Pass_Input" class="form-control" placeholder="Password" name="pass1" required>
-                                        <input type="text" id="Pass_Input1" class="form-control" placeholder="Confirm Password" name="pass2" required>
-                                        
-                                        <input type="hidden"  value = <?php echo  '"'.htmlspecialchars($username).'"' ?> name="username">
-                                        <input type="hidden"  value = <?php echo  '"'.htmlspecialchars($salt).'"' ?> name="salt">
+										<input type="text" id="Pass_Input" class="form-control" placeholder="Password" name="pass" required>
 									</div>
                                     
 								</div>								

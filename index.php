@@ -22,7 +22,7 @@
                 function GetImages($dir) {
                     $files = scandir($dir);
                     foreach ($files as $file) {
-                        if($file == '.' || $file == "..")continue;
+                        if($file == '.' || $file == "..") continue;
                         $result[] = $dir . "/" . $file;
                     }
                     return $result;
@@ -30,14 +30,14 @@
                 
                 function DisplayImages($dir) {
                     $links = GetImages($dir);
-                    $format= ' <a class="gallery_item" href="portfolio.php?folder_name=Sergey">
+                    $format = ' <a class="gallery_item" href="portfolio.php?folder_name=Sergey">
                                 <img src="%s">
                                  <span class="overlay">
                                     <h2>Watch more</h2>
                                 </span>
                                 </a> ';
                     foreach ($links as $link) {
-                      printf($format, htmlspecialchars($link));
+						printf($format, htmlspecialchars($link));
                     }
                 }
                 
@@ -63,14 +63,14 @@
             <?php
                 function DisplayImagesOther($dir) {
                     $links = GetImages($dir);
-                    $format= ' <a class="gallery_item" href="portfolio.php?folder_name=Other">
+                    $format = ' <a class="gallery_item" href="portfolio.php?folder_name=Other">
                                 <img src="%s">
                                  <span class="overlay">
                                     <h2>Watch more</h2>
                                 </span>
                                 </a> ';
                     foreach ($links as $link) {
-                      printf($format, htmlspecialchars($link));
+						printf($format, htmlspecialchars($link));
                     }
                 }
                 
