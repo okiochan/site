@@ -11,6 +11,20 @@ class DB {
         return self::$db;
     }
 
+    public static function dbChangePass($username, $newpass) {
+        $db = self::OpenDB();
+        
+        $salt = self::dbGenerateSalt();
+        $pass = self::dbPassToHash($newpass, $salt);
+        
+        $stmt = $db->prepare('UPDATE users SET password = :1 , salt = :2 WHERE username = :3');
+        $stmt -> bindParam(':1',$pass);
+        $stmt -> bindParam(':2',$salt);
+        $stmt -> bindParam(':3',$username);
+        $res = $stmt -> execute();
+        return true;
+    }
+    
     public static function dbCheckPass($username, $pass) {
         $db = self::OpenDB();
 

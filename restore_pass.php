@@ -67,9 +67,14 @@
 						<div class="col-md-12">
 							<div class="row">	
 								<div class="col-md-6">
+                                
+                                    <div name="help_input" id="help_input" style="visibility:visible; color: red;">
+									</div>
+                                    
 									<div class="form-group">
 										<input type="text" class="form-control" placeholder="Name or Email" name="login" required>
 									</div>
+                                    
 								</div>								
 							</div>
 						</div>

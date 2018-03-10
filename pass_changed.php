@@ -1,18 +1,3 @@
-<?php
-require_once __DIR__ . '/php/include.php';
-
-$username = $_GET['username'];
-$salt = $_GET['salt'];
-
-if(DB::dbCheckUserExist($username) == false) {
-    die("user_not_found");
-}
-
-if( DBrestore::dbCheckSalt($username, $salt) == false) {
-    die("salt_not_found");
-}
-?>
-
 <!DOCTYPE html>
 	<head>
 	<meta charset="utf-8">
@@ -73,33 +58,12 @@ if( DBrestore::dbCheckSalt($username, $salt) == false) {
 				
 				<div class="row">
 					<div class="col-md-4">
-						<h1>Enter new password</h1>
+						<h1>Password changed successful</h1>
 					</div>
 				</div>
-    
-				<form class="pass_form">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row">	
-								<div class="col-md-6">
-                                    
-                                    <div name="help_for_pass_input" id="help_for_pass_input" class="warning_message_in_feedback_form" style="visibility:visible; color: red;">
-									</div>
-									<div class="form-group">
-										<input type="text" id="Pass_Input" class="form-control" placeholder="Password" name="pass1" required>
-                                        <input type="text" id="Pass_Input1" class="form-control" placeholder="Confirm Password" name="pass2" required>
-                                        
-                                        <input type="hidden"  value = <?php echo  '"'.htmlspecialchars($username).'"' ?> name="username">
-                                        <input type="hidden"  value = <?php echo  '"'.htmlspecialchars($salt).'"' ?> name="salt">
-									</div>
-                                    
-								</div>								
-							</div>
-						</div>
-					</div>
                     
                     <div class="col-md-12">
-                        <a class="btn btn-primary btn-outline reg_button">Next</a>
+                        <a class="btn btn-primary btn-outline reg_button" href = "index.php">Go to main page</a>
 					</div>
 				</form>
                 
