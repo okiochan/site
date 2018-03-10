@@ -8,8 +8,8 @@ function sendText($email, $text) {
 
     $email = trim($email);
     $text = trim($text);
-    $email = iconv(mb_detect_encoding($email, mb_detect_order(), true), "UTF-8", $email);
-    $text = iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
+    // $email = iconv(mb_detect_encoding($email, mb_detect_order(), true), "UTF-8", $email);
+    // $text = iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
     
     $mail = new PHPMailer(true);
     $mail->CharSet = 'utf-8';
